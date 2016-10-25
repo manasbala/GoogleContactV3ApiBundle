@@ -1,0 +1,4 @@
+services:
+#    mb_google_contact_v3_api.example:
+#        class: MB\GoogleContactV3ApiBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
