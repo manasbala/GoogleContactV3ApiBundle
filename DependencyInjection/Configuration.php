@@ -20,6 +20,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mb_google_contact_v3_api');
 
+        $rootNode->children()
+            ->scalarNode('client_id')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('client_secret')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('redirect_uri')->isRequired()->cannotBeEmpty()->end()
+            ->scalarNode('developer_key')->isRequired()->cannotBeEmpty()->end()
+        ;
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

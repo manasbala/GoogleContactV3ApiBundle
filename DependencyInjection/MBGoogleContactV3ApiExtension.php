@@ -22,6 +22,11 @@ class MBGoogleContactV3ApiExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('mb_google_contact_v3_api.client_id', $config['client_id']);
+        $container->setParameter('mb_google_contact_v3_api.client_secret', $config['client_secret']);
+        $container->setParameter('mb_google_contact_v3_api.redirect_uri', $config['redirect_uri']);
+        $container->setParameter('mb_google_contact_v3_api.developer_key', $config['developer_key']);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

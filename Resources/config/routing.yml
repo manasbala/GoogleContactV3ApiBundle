@@ -1,3 +1,7 @@
-mb_google_contact_v3_api_homepage:
+mb_google_contact_v3_api_auth_app:
     path:     /
-    defaults: { _controller: MBGoogleContactV3ApiBundle:Default:index }
+    defaults: { _controller: MBGoogleContactV3ApiBundle:Auth:index }
+
+mb_google_contact_v3_api_auth:
+    path:     /google/auth
+    defaults: { _controller: MBGoogleContactV3ApiBundle:Auth:auth }
