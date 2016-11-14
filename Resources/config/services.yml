@@ -5,4 +5,12 @@ services:
 
     mb_google_contact_v3api.api.google_client:
         class: MB\GoogleContactV3ApiBundle\API\GoogleClient
-        arguments: ['%mb_google_contact_v3_api.client_id%', '%mb_google_contact_v3_api.client_secret%', '%mb_google_contact_v3_api.redirect_uri%', '%mb_google_contact_v3_api.developer_key%']
+        arguments: ['@mb_google_contact_v3api.api.google_api_config_manager', '%mb_google_contact_v3_api.client_id%', '%mb_google_contact_v3_api.client_secret%', '%mb_google_contact_v3_api.redirect_uri%', '%mb_google_contact_v3_api.developer_key%']
+
+    mb_google_contact_v3api.api.google_api_config_manager:
+        class: MB\GoogleContactV3ApiBundle\Manager\GoogleApiConfigManager
+        arguments: ['@doctrine.orm.entity_manager']
+
+    mb_google_contact_v3api.api.google_contact_manager:
+        class: MB\GoogleContactV3ApiBundle\Manager\GoogleContactManager
+        arguments: ['@mb_google_contact_v3api.api.google_client']

@@ -9,15 +9,19 @@
 namespace MB\GoogleContactV3ApiBundle\API;
 
 
+use MB\GoogleContactV3ApiBundle\Manager\GoogleApiConfigManager;
+
 class GoogleClient
 {
+    private $acm;
     private $clientId;
     private $clientSecret;
     private $redirectUrl;
     private $developerKey;
 
-    public function __construct($clientId, $clientSecret, $redirectUrl, $developerKey)
+    public function __construct(GoogleApiConfigManager $acm, $clientId, $clientSecret, $redirectUrl, $developerKey)
     {
+        $this->acm = $acm;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->redirectUrl = $redirectUrl;
@@ -38,9 +42,11 @@ class GoogleClient
         $client->setAccessType('offline');
         $client->setApprovalPrompt('force');
         $client->setDeveloperKey($this->developerKey);
-        /*if (isset($config->refreshToken) && $config->refreshToken) {
-            $client->refreshToken($config->refreshToken);
-        }*/
+
+        $refreshToken = $this->acm->get('refresh_token');
+        if (!empty($refreshToken)) {
+            $client->refreshToken($refreshToken);
+        }
 
         return $client;
     }

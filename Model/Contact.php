@@ -14,17 +14,7 @@ class Contact
     /**
      * @var string
      */
-    private $firstName;
-
-    /**
-     * @var string
-     */
-    private $middleName;
-
-    /**
-     * @var string
-     */
-    private $lastName;
+    private $name;
 
     /**
      * @var string
@@ -37,9 +27,9 @@ class Contact
     private $workEmail;
 
     /**
-     * @var array
+     * @var string
      */
-    private $otherEmails = array();
+    private $otherEmail;
 
     /**
      * @var string
@@ -52,9 +42,9 @@ class Contact
     private $workPhone;
 
     /**
-     * @var array
+     * @var string
      */
-    private $otherPhones;
+    private $otherPhone;
 
     /**
      * @var string
@@ -64,76 +54,13 @@ class Contact
     /**
      * @var string
      */
-    private $city;
+    private $company;
 
     /**
      * @var string
      */
-    private $zip;
+    private $selfUrl;
 
-    /**
-     * @var string
-     */
-    private $state;
-
-    /**
-     * @var string
-     */
-    private $country;
-
-    /**
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @param string $firstName
-     * @return Contact
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMiddleName()
-    {
-        return $this->middleName;
-    }
-
-    /**
-     * @param string $middleName
-     * @return Contact
-     */
-    public function setMiddleName($middleName)
-    {
-        $this->middleName = $middleName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param string $lastName
-     * @return Contact
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-        return $this;
-    }
 
     /**
      * @return string
@@ -174,18 +101,18 @@ class Contact
     /**
      * @return array
      */
-    public function getOtherEmails()
+    public function getOtherEmail()
     {
-        return $this->otherEmails;
+        return $this->otherEmail;
     }
 
     /**
-     * @param array $otherEmails
+     * @param array $otherEmail
      * @return Contact
      */
-    public function setOtherEmails($otherEmails)
+    public function setOtherEmail($otherEmail)
     {
-        $this->otherEmails = $otherEmails;
+        $this->otherEmail = $otherEmail;
         return $this;
     }
 
@@ -228,18 +155,18 @@ class Contact
     /**
      * @return array
      */
-    public function getOtherPhones()
+    public function getOtherPhone()
     {
-        return $this->otherPhones;
+        return $this->otherPhone;
     }
 
     /**
-     * @param array $otherPhones
+     * @param array $otherPhone
      * @return Contact
      */
-    public function setOtherPhones($otherPhones)
+    public function setOtherPhone($otherPhone)
     {
-        $this->otherPhones = $otherPhones;
+        $this->otherPhone = $otherPhone;
         return $this;
     }
 
@@ -264,72 +191,53 @@ class Contact
     /**
      * @return string
      */
-    public function getCity()
+    public function getName()
     {
-        return $this->city;
+        return $this->name;
     }
 
     /**
-     * @param string $city
+     * @param string $name
      * @return Contact
      */
-    public function setCity($city)
+    public function setName($name)
     {
-        $this->city = $city;
+        $this->name = $name;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getZip()
+    public function getCompany()
     {
-        return $this->zip;
+        return $this->company;
     }
 
     /**
-     * @param string $zip
+     * @param string $company
      * @return Contact
      */
-    public function setZip($zip)
+    public function setCompany($company)
     {
-        $this->zip = $zip;
+        $this->company = $company;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getState()
+    public function getSelfUrl()
     {
-        return $this->state;
+        return $this->selfUrl;
     }
 
     /**
-     * @param string $state
-     * @return Contact
+     * @param string $selfUrl
      */
-    public function setState($state)
+    public function setSelfUrl($selfUrl)
     {
-        $this->state = $state;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param string $country
-     * @return Contact
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-        return $this;
+        $this->selfUrl = $selfUrl;
     }
 }

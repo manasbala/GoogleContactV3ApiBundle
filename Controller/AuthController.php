@@ -3,6 +3,7 @@
 namespace MB\GoogleContactV3ApiBundle\Controller;
 
 use MB\GoogleContactV3ApiBundle\API\GoogleClient;
+use MB\GoogleContactV3ApiBundle\Model\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AuthController extends Controller
@@ -30,11 +31,41 @@ class AuthController extends Controller
         GoogleClient::authenticate($client, $code);
 
         $accessToken = GoogleClient::getAccessToken($client);
+        dump($accessToken);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->getRepository('MBGoogleContactV3ApiBundle:GoogleApiConfig')->update('accessToken', $accessToken->access_token);
-        $em->getRepository('MBGoogleContactV3ApiBundle:GoogleApiConfig')->update('accessToken', $accessToken->refresh_token);
+        $configManager = $this->get('mb_google_contact_v3api.api.google_api_config_manager');
+        $configManager->update('access_token', $accessToken->access_token);
+        $configManager->update('refresh_token', $accessToken->refresh_token);
 
         exit('Tokens are saved. Thanks');
+    }
+
+    public function testAction()
+    {
+
+        $gcm = $this->get('mb_google_contact_v3api.api.google_contact_manager');
+
+        $contact = new Contact();
+        $contact->setName('Test Name')
+            ->setWorkEmail('test1@gmail.com')
+            ->setHomeEmail('test2@gmail.com')
+            ->setOtherEmail('test3@gmail.com')
+            ->setWorkPhone('01711111111')
+            ->setHomePhone('01722222222')
+            ->setOtherPhone('01733333333')
+            ->setCompany('offBeat')
+            ->setAddress('583, anamica concord, mirpur, dhaka');
+
+        $r = $gcm->createContact($contact);
+
+        dump($r);
+        exit();
+
+        /*$gcm = $this->get('mb_google_contact_v3api.api.google_contact_manager');
+
+        $contacts = $gcm->getAllContacts();
+
+        dump($contacts);
+        exit();*/
     }
 }

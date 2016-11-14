@@ -8,6 +8,8 @@
 
 namespace MB\GoogleContactV3ApiBundle\Entity;
 
+use Doctrine\ORM\Mapping AS ORM;
+
 /**
  * GoogleApiConfig
  *
@@ -28,14 +30,14 @@ class GoogleApiConfig
     /**
      * @var string
      *
-     * @ORM\Column(name="key", type="string", length=255)
+     * @ORM\Column(name="g_key", type="string", length=255)
      */
     protected $key;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="value", type="string", length=255)
+     * @ORM\Column(name="g_value", type="string", length=255)
      */
     protected $value;
 
