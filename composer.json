@@ -1,5 +1,5 @@
 {
-  "name": "mb/google-contact-v3-api-bundle",
+  "name": "manasbala/google-contact-v3-api-bundle",
   "type": "library",
   "description": "Google Contact API Bundle for symfony. New V3 API is integrated here.",
   "homepage": "https://github.com/manasbala/GoogleContactV3ApiBundle",
