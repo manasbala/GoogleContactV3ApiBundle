@@ -19,8 +19,8 @@
     "phpunit/phpunit": "3.7.*"
   },
   "autoload": {
-    "psr-0": {
-      "MB\\": ""
+    "psr-4": {
+      "MB\\GoogleContactV3ApiBundle": ""
     }
   },
   "minimum-stability": "dev"
