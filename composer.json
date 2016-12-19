@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MB\\GoogleContactV3ApiBundle": ""
+      "MB\\GoogleContactV3ApiBundle\\": ""
     }
   },
   "minimum-stability": "dev"
