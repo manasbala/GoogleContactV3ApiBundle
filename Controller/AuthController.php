@@ -31,7 +31,7 @@ class AuthController extends Controller
         GoogleClient::authenticate($client, $code);
 
         $accessToken = GoogleClient::getAccessToken($client);
-        dump($accessToken);
+        //dump($accessToken);
 
         $configManager = $this->get('mb_google_contact_v3api.api.google_api_config_manager');
         $configManager->update('access_token', $accessToken->access_token);
